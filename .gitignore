@@ -1,0 +1,15 @@
+# Obsidian system files
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/graph.json
+.obsidian/appearance.json
+.obsidian/plugins/obsidian-icon-folder/data.json
+
+# Smart Env / Plugin specific caches
+.smart-env/
+.obsidian/plugins/*/data.json
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
