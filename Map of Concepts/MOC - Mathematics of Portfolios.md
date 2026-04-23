@@ -1,7 +1,7 @@
 ---
 subject: Mathematics of Portfolios
 type: MOC
-exam_date: 2026-06-04
+exam_date: 2026-05-21
 status: seeding
 confidence: 1
 tags:
@@ -52,9 +52,9 @@ The subject begins with **how investors think**: utility functions formalise pre
 
 - [[Portfolio expected return]]
 - [[Portfolio variance]]
-- [[Markowitz model]] — mean-variance optimisation with riskless asset
-- [[Optimal risky portfolio]] — maximise Sharpe ratio, solve Zi system
-- [[Capital market line]] — E(Rp) = RF + σp · (E(Rm)−RF)/σm
+- [[Markowitz model]]: mean-variance optimization with riskless asset
+- [[Optimal risky portfolio]]: maximize Sharpe ratio, solve Zi system
+- [[Capital market line]]: $E(Rp) = RF + \sigma p · (E(Rm)−RF)/ \sigma m$
 
 ### Asset pricing
 
