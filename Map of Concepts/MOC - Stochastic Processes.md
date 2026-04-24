@@ -20,7 +20,7 @@ The course begins by defining **stochastic processes** through their time and sp
 ### Foundations & Random Walks
 
 - [[Stochastic Process]]: continuous vs. discrete time/space
-- [[Strong Stationarity]] vs [[Independent Increments]]
+- [[Stationary Increments]] vs [[Independent Increments]]
 - [[Simple Random Walk]]: $S_n = S_0 + \sum_t {X_t}$
 - [[Spatial Homogeneity]] and [[Time Homogeneity]]
 - [[Gambler's Ruin]]: ruin probability $y_k$ and [[Absorbing State|absorbing states]].
