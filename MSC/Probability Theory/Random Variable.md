@@ -3,5 +3,5 @@ A random variable $X$ is a measurable function $X: \Omega \to E$ from a sample s
 
 The probability that $X$ takes on a value in a measurable set $S \subseteq E$ is written as:
 $$
-P(X \in S) = P(\{omega \in \Omega | X(\omega) \in S\})
+P(X \in S) = P(\{\omega \in \Omega | X(\omega) \in S\})
 $$
