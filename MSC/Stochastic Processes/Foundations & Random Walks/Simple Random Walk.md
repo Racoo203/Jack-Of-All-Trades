@@ -21,9 +21,22 @@ for all $i,j \in S$ such that $i \neq j$.
 
 In general, the $n$-step transition probability of $\{S_n\}$: 
 $$
-p_{0k}^{(n)} = \begin{cases}
-
+Pr(S_n=k | S_0 = 0) = \begin{cases}
+\binom{n}{(n+k)/2}p^{(n+k)/2}q^{(n-k)/2}, & (n+k)/2 \in \{0,1,\cdots, N\} \\
+0, & \text{otherwise.}
 \end{cases}
+$$
+Such statement can be proven with the following:
+$$
+Pr(S_n=k|S_0=0) = Pr(2U_n-n = k) = Pr(U_n = (n + k) / 2 )
+$$
+where $U_n$ is the total of up-steps taken in the first $n$-steps. $U_n$ can be thought of as $n$ [[Independent and Identically Distributed (i.i.d)|i.i.d.]] [[Bernoulli distribution|Bernoulli trials]] with parameter $p$. Therefore, $U_n$ follows a [[Binomial distribution|Binomial distribution]] with parameters $n, p$.
+$$
+U_n \sim Bin(n,p)
+$$
+and,
+$$
+Pr(U_n=(n+k)/2) = \binom{n}{(n+k)/2}p^{(n+k)/2}q^{(n-k)/2}
 $$
 ### Markov Property
 All simple random walks have the [[Markov Property|Markov property]]. That is, the probability of reaching a given state is only dependent on immediate previous state. That is, for all $m, n \geq 0 \in T$ and $j, s_0, s_1, \cdots, s_m$, then
@@ -93,3 +106,77 @@ Finally,
 $$
 \text{Var}[S_n] = 4pqn
 $$
+### Probability of Revisiting
+Consider the probability that a simple random walk will ever return to $0$. Assume that $S_0 = 0$. Then, the probability that it ever returns to its starting point is given by
+$$
+Pr(\text{ever returns to } 0 | S_0=0)= 1−|p−q|
+$$
+To prove this, consider the event $H$, which is the event of the random walk ever revisiting $0$, and $H_N$ the event of the random walk revisiting $0$ before reaching $N$. Then, 
+$$
+Pr(H | S_0 = 0) = Pr(H|S_1=1)\cdot Pr(S_1 = 1 | S_0 = 0) + Pr(H|S_1=-1)\cdot Pr(S_1=-1 | S_0=0)
+$$
+$$
+\implies Pr(H | S_0 = 0) = Pr(H|S_1=1)p + Pr(H|S_1=-1)q
+$$
+There are two cases to consider.
+#### Case 1: $p\neq q$.
+Let $p \neq q$, then $p>q$ or $q > p$. Assume $p>q$,
+$$
+Pr(H|S_0=1)=\lim_{N \to \infty}Pr(H_N|S_0=1)
+$$
+Notice how returning to zero is another way to rephrase the [[Gambler's Ruin|ruin probability]]. Therefore,
+$$
+Pr(H|S_0=1)=\lim_{N \to \infty}\frac{(q/p)-(q/p)^N}{1-(q/p)^N}=q/p
+$$
+Now, for when $S_0=-1$,
+$$
+Pr(H|S_0=-1)=\lim_{N \to \infty}\frac{(p/q)-(p/q)^N}{1-(p/q)^N}=1
+$$
+$$
+Pr(H | S_0 = 0) = (q/p) \cdot (p) + (1) \cdot (q) = 2q
+$$
+That is,
+$$
+Pr(H|S_0=0) = q+(1-p) =1+(q-p)
+$$
+However, since $p>q$, $q-p$ is negative, which cannot be the case for any probability. Hence,
+$$
+Pr(H|S_0=0)=1-\lvert p - q \rvert
+$$
+#### Case 2: $p=q$
+In the case of $p=q$, one can model the probability of $Pr(H | S_0 =1)$ as the ruin probability when $p=q$.
+$$
+Pr(H|S_0=1) = \lim_{N \to \infty} Pr(H_N | S_0 = 1) = \lim_{N \to \infty}(1-1/N)
+$$
+which implies
+$$
+Pr(H | S_0 = 1) = 1
+$$
+For the case of $S_0 = -1$, consider that $S_n$ is symmetric and therefore,
+$$
+Pr(H|S_0=-1) = \lim_{N \to \infty} Pr(H_N | S_0 = -1) = 1
+$$
+Thus,
+$$
+Pr(H | S_0 = 0) = (1) \cdot (p) + (1) \cdot (q) = 1
+$$
+Which means that the return to zero is guaranteed on a symmetric simple random walk.
+
+#### Expected Number of Steps for Return
+The expected number of steps that a symmetric simple random walk takes for its first return to the starting point $0$ is infinite. To prove as such, define $\nu_k$ as the expected value of the number of steps for return starting from $k$. Then,
+$$
+\nu_{0}=0.5 \nu_1 + 0.5\nu_{-1} + 1
+$$
+Let $T_k^{N}$ be the number of steps needed to reach either $0$ or $N$, just as defined in the expected game duration of the of the [[Gambler's Ruin]]. Then, 
+$$
+T_k \geq T_k^N \implies \mathbb{E}[T_k] \geq \mathbb{E}[T_k^N]
+$$
+Since $\mathbb{E}[T_k^N]$ is $\mu_k = k(N-k)$ when accounting for a symmetric random walk, the following is true
+$$
+\nu_k \geq k(N-K)
+$$
+However, consider that the problem studied assumes $N \to \infty$. With $k=1$, it is easy to see that,
+$$
+\nu_1 \geq \lim_{N \to \infty}1(N-1) = +\infty
+$$
+which implies that $\nu_0 = +\infty$.
