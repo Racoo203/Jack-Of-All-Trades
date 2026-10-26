@@ -1,15 +1,30 @@
-# Obsidian system files
+# ── Course material (never public) ─────────────────────────────────────────
+# Slides, past papers + solutions, graded homework (incl. teammates' names),
+# datasets, R/Python workspaces, nested project repos. Copyrighted by the
+# institutions/professors and an academic-integrity risk if published.
+# Only the README describing the folder convention is versioned.
+Resources/*
+!Resources/README.md
+
+# ── Obsidian per-device state & plugin data ────────────────────────────────
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
 .obsidian/graph.json
 .obsidian/appearance.json
-.obsidian/plugins/obsidian-icon-folder/data.json
-
-# Smart Env / Plugin specific caches
-.smart-env/
 .obsidian/plugins/*/data.json
-*.log
+.obsidian/plugins/obsidian-git/obsidian_askpass.sh
+.trash/
 
-# OS generated files
+# ── Plugin caches (Smart Connections embeddings hold note snippets) ────────
+.smart-env/
+
+# ── Scratch / export artefacts ─────────────────────────────────────────────
+*_extract/
+*.log
+*.tmp
+
+# ── OS / Office junk ───────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
+desktop.ini
+~$*

@@ -1,0 +1,12 @@
+---
+title: Strong Stationarity
+domain: Stochastic Processes
+course: Stochastic Processes
+unit: Foundations & Random Walks
+level: MSc
+status: seeding
+confidence: 0
+tags: [seeding]
+---
+## Definition
+A [[Stochastic Process|stochastic process]] $\{X_t : t \in T\}$ is strongly stationary if for any $n \in \mathbb{N}$, $s>0$, and $t_1, t_2, \cdots, t_n \in T$, then $(X_{t_1}, X_{t_2}, \cdots, X_{t_n})$ and $(X_{t_1 + s}, X_{t_2 + s}, \cdots, X_{t_n + s})$ have the same [[Joint distribution|joint distribution]].
